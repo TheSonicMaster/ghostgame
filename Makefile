@@ -9,12 +9,12 @@ all: ghostgame
 ghostgame:
 	go build -buildmode=exe
 
+strip:
+	strip --strip-all ghostgame
+
 install:
 	mkdir -pv $(DESTDIR)$(PREFIX)/bin
 	install -vm755 ghostgame $(DESTDIR)$(PREFIX)/bin/ghostgame
-
-strip:
-	strip --strip-all ghostgame
 
 uninstall:
 	rm -fv $(DESTDIR)$(PREFIX)/bin/ghostgame
