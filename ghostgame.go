@@ -5,7 +5,7 @@ import "os"
 import "time"
 
 func main() {
-	var version string = "1.0.0"
+	var version string = "1.0.1"
 	var highscore int = 0
 	fmt.Println("ghostgame version",version)
 	fmt.Println("Copyright (c) 2021 The Sonic Master")

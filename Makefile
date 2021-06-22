@@ -7,7 +7,7 @@ PREFIX=/usr/local
 all: ghostgame
 
 ghostgame:
-	go build -buildmode=exe
+	go build -buildmode=exe -trimpath
 
 strip:
 	strip --strip-all ghostgame
