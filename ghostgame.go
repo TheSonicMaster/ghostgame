@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	var version string = "1.0.1"
+	var version string = "1.1.0"
 	var highscore int = 0
-	fmt.Println("ghostgame version", version)
+	fmt.Println("ghostgame version",version)
 	fmt.Println("Copyright (c) 2021 The Sonic Master")
 	for true {
 		fmt.Println()
@@ -24,7 +24,7 @@ func main() {
 			var choice int
 			fmt.Scanln(&choice)
 			if (choice <= 3) && (choice > 0) && (choice != ghostdoor) {
-        fmt.Println("No ghost! You move to the next room!")
+				fmt.Println("No ghost! You move to the next room!")
 				score ++
 			} else if (choice == ghostdoor) {
 				fmt.Println("Oh no! You chose the ghost door!")
