@@ -1,13 +1,17 @@
 package main
-import "fmt"
-import "math/rand"
-import "os"
-import "time"
+
+import (
+	"fmt"
+	"math/rand"
+	"os"
+	"strings"
+	"time"
+)
 
 func main() {
 	var version string = "1.0.1"
 	var highscore int = 0
-	fmt.Println("ghostgame version",version)
+	fmt.Println("ghostgame version", version)
 	fmt.Println("Copyright (c) 2021 The Sonic Master")
 	for true {
 		fmt.Println()
@@ -19,30 +23,31 @@ func main() {
 			fmt.Print("Which door do you open? 1, 2, or 3? ")
 			var choice int
 			fmt.Scanln(&choice)
-			if (choice != 1) && (choice != 2) && (choice != 3) {
-				continue
+			if (choice <= 3) && (choice > 0) && (choice != ghostdoor) {
+        fmt.Println("No ghost! You move to the next room!")
+				score ++
 			} else if (choice == ghostdoor) {
 				fmt.Println("Oh no! You chose the ghost door!")
 				fmt.Println("Game over! You scored",score)
 				break
 			} else {
-				fmt.Println("No ghost! You move to the next room!")
-				score ++
+				continue
 			}
 		}
 		if (score > highscore) {
 			fmt.Println("Congratulations! You got a new high score!")
 			highscore = score
 		} else {
-			fmt.Println("Your highscore remains as",highscore)
+			fmt.Println("Your highscore remains as ",highscore)
 		}
 		for true {
 			fmt.Print("Would you like to play again? [y/n] ")
 			var retry string
 			fmt.Scanln(&retry)
-			if (retry == "y") || (retry == "Y") || (retry == "yes") || (retry == "Yes" ) || (retry == "YES") {
+			var retrylowercase string = strings.ToLower(retry) 
+			if (retrylowercase == "y") || (retrylowercase == "yes") {
 				break
-			} else if (retry == "n") || (retry == "N") || (retry == "no") || (retry == "No" ) || (retry == "NO") {
+			} else if (retrylowercase == "n") || (retrylowercase == "no") {
 				os.Exit(0)
 			} else {
 				continue
